@@ -1,0 +1,55 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "VNet_Name": {
+            "type": "string",
+            "defaultValue": "VNet"
+        },
+        "VNet_Address": {
+            "type": "string",
+            "defaultValue": "10.20.0.0/16"
+        },
+        "VNet_Tags": {
+            "type": "object",
+            "defaultValue": {
+                 "Env": "Testing"
+        },
+        "Subnet_Name": {
+            "type": "string",
+            "defaultValue": "Subnet"
+        },
+        "Subnet_Address": {
+            "type": "string",
+            "defaultValue": "10.20.0.0/24"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('VNet_Name')]",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-05-01",
+            "location": "[resourceGroup().location]",
+            "tags": "[parameters('VNet_Tags')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[parameters('VNet_Address')]"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "apiVersion": "2020-05-01",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('VNet_Name'), '/' , parameters('Subnet_Name'))]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('VNet_Name'))]"
+            ],
+            "properties": {
+                "addressPrefix": "[parameters('Subnet_Address')]"
+            }
+        }
+    ]
+}
