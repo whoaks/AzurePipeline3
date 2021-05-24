@@ -19,6 +19,6 @@ steps:
     resourceGroupName: 'Aks-RG'
     location: 'East US'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/whoaks/AzurePipeline3/main/Template/template1.json'
+    csmFileLink: 'https://raw.githubusercontent.com/whoaks/AzurePipeline3/main/Template/LT_Storage.json'
     deploymentMode: Incremental
     deploymentName: 'firttemplatedeployment'
