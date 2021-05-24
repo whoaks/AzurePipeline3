@@ -10,7 +10,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/Storage_Account.json"
+                    "relativePath": "Storage_Account.json"
                 }
             }
         },
@@ -24,7 +24,7 @@
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/Storage_Container.json"
+                    "relativePath": "Storage_Container.json"
                 }
             }
         }
