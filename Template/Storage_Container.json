@@ -4,11 +4,11 @@
     "parameters": {
         "Storage_Container_Name": {
             "type": "array",
-            "defaultValue": ["con-1", "con-2", "con-3"]
+            "defaultValue": ["con-1", "con-2"]
         },
         "Storage_Container_Access": {
             "type": "array",
-            "defaultValue": ["Container", "Container", "Blob"]
+            "defaultValue": ["Container", "Container"]
         },
         "Storage_Account_Name": {
             "type": "string",
